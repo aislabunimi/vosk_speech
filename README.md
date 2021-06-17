@@ -15,6 +15,7 @@ This package provide a speech to text module that is aimed to be fast and workin
 The advantage is that you can have a speech to text module always active on the robot, and have faster results.
 
 **Note THAT**
+
 This is a first draft of the module that works as a publisher.
 In the following months (hopefully) expect
 1. this code to be refined and improved 
@@ -57,7 +58,9 @@ pyaudio
  ### Docker container setup
  1. Install docker
  2. (opt) Installa a management tool for docker containers (e.g., [dockstation](https://dockstation.io/))
- 3. Install the container by using the Dockerfile provided in the repo. [Here](https://docs.docker.com/get-started/02_our_app/) you can find some documentation about that. **Note that** the Dockerfile is configured to use a VOSK model trained in **Italian language** to recognize it. If you need another language or you want to change the model, please edit the Dockerfile. 
+ 3. Install the container by using the Dockerfile provided in the repo. [Here](https://docs.docker.com/get-started/02_our_app/) you can find some documentation about that. 
+ 
+ **Note that** the Dockerfile is configured to use a VOSK model trained in **Italian language** to recognize it. If you need another language or you want to change the model, please edit the Dockerfile. 
 To do so do the following:
 ```
 docker build -f /path/to/a/Dockerfile .
