@@ -36,7 +36,8 @@ pyaudio
  2. (opt) Installa a management tool for docker containers (e.g., [dockstation](https://dockstation.io/))
  3. Install the container by using the Dockerfile provided in the repo. [Here](https://docs.docker.com/get-started/02_our_app/) you can find some documentation about that. **Note that** the Dockerfile is configured to use a VOSK model trained in **Italian language** to recognize it. If you need another language or you want to change the model, please edit the Dockerfile. 
 To do so do the following:
-``` docker build -f /path/to/a/Dockerfile .
+```
+docker build -f /path/to/a/Dockerfile .
 
 ```
- 5. Start the Container
+ 4. Start the Container
