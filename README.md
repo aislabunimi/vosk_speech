@@ -9,7 +9,30 @@ This package provides real-time and offline speech-to-text using [VOSK](https://
 You should install VOSK in its [websocket server version](https://alphacephei.com/vosk/install) using docker. 
 A configuration file for installing the docker container is provided.
 
+## Description
 
+This package provide a speech to text module that is aimed to be fast and working locally on the robot, to bypass network delays that could jeopardize human robot ineteraction. IT relies on a relatively lightweight speech to text library, VOSK, which supports multiple languages. The payoff is in the fact that accuracy of the recognized speech could be lower wrt other alternatives (e.g., Google Cloud Services).
+The advantage is that you can have a speech to text module always active on the robot, and have faster results.
+
+**Note THAT**
+This is a first draft of the module that works as a publisher.
+In the following months (hopefully) expect
+1. this code to be refined and improved 
+2. The possibility to ask the Vosk SST service to act as a [ROS Action Server](http://wiki.ros.org/actionlib) and not as a ROS topic.
+
+If you want to contribute, feel free to do so!
+
+## Usage
+
+1. Start the docker container
+2. Start
+```
+vosk_sst_publiser.py
+```
+3. You should see three topics being published. All three of them publish String messages. The topics are.
+`vosk/speech` publishes sentences as they are recognized in their entirety. If you are intereted in full sentences, use this topic.
+`vosk/partial_speech` publishes partial partial results from speech in real time as they are translated into text. If you need more accuracy, use the `vosk/speech` results. If want to get a prompter results (e.g., getting a "no" or "yes" utterance and you are not interested in the full sentence, use this topic.
+`vosk/confidence` publishes, for each word published in a `vosk/speech` channel the confidence for each world.
 
 
 ## Dependencies
