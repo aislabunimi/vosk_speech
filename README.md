@@ -14,7 +14,7 @@ A configuration file for installing the docker container is provided.
 This package provide a speech to text module that is aimed to be fast and working locally on the robot, to bypass network delays that could jeopardize human robot ineteraction. IT relies on a relatively lightweight speech to text library, VOSK, which supports multiple languages. The payoff is in the fact that accuracy of the recognized speech could be lower wrt other alternatives (e.g., Google Cloud Services).
 The advantage is that you can have a speech to text module always active on the robot, and have faster results.
 
-**Note THAT**
+### Important Notes
 
 This is a first draft of the module that works as a publisher.
 In the following months (hopefully) expect
