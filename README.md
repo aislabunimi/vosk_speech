@@ -16,8 +16,7 @@ The advantage is that you can have a speech to text module always active on the 
 
 ### Important Notes
 
-This is a first draft of the module that works as a publisher.
-In the following months (hopefully) expect
+This is a first draft of the module that works as a simple topic publisher (so no action server nor ROS service are provided)..In the following months (hopefully) expect: 
 1. this code to be refined and improved 
 2. The possibility to ask the Vosk SST service to act as a [ROS Action Server](http://wiki.ros.org/actionlib) and not as a ROS topic.
 
@@ -31,9 +30,9 @@ If you want to contribute, feel free to do so!
 vosk_sst_publiser.py
 ```
 3. You should see three topics being published. All three of them publish String messages. The topics are.
-`vosk/speech` publishes sentences as they are recognized in their entirety. If you are intereted in full sentences, use this topic.
-`vosk/partial_speech` publishes partial partial results from speech in real time as they are translated into text. If you need more accuracy, use the `vosk/speech` results. If want to get a prompter results (e.g., getting a "no" or "yes" utterance and you are not interested in the full sentence, use this topic.
-`vosk/confidence` publishes, for each word published in a `vosk/speech` channel the confidence for each world.
+ 1.`vosk/speech` publishes sentences as they are recognized in their entirety. If you are intereted in full sentences, use this topic.
+ 2.`vosk/partial_speech` publishes partial partial results from speech in real time as they are translated into text. If you need more accuracy, use the   `vosk/speech` results. If want to get a prompter results (e.g., getting a "no" or "yes" utterance and you are not interested in the full sentence, use this topic.
+ 3.`vosk/confidence` publishes, for each word published in a `vosk/speech` channel the confidence for each world.
 
 
 ## Dependencies
