@@ -24,6 +24,7 @@ response = []
 error = []
 listen = True
 vosk_thread = []
+encoding = 'utf-8' # 'ascii'
 
 def on_message(ws, message):
 	global response
@@ -73,6 +74,9 @@ def startListening() :
 def vosk_talker():
 	global response
 	global vosk_thread
+	rospy.loginfo("Starting Speech Node")
+	rospy.loginfo("Note that ROS supports ascii strings, so UTF-8 characters are formatted. If you wat to remove that change encoding to ascii")
+	# To parse UTF-8 do this https://answers.ros.org/question/269873/how-do-i-use-unicode-strings-in-pubishsubscribe/
 	pub_partial = rospy.Publisher('vosk/partial_speech', String, queue_size=10)
 	pub_speech = rospy.Publisher('vosk/speech', String, queue_size=10)
 	pub_fullresults = rospy.Publisher('vosk/confidence', String, queue_size=10)
@@ -83,11 +87,11 @@ def vosk_talker():
 		if response :
 			popstr = response.pop()
 			if 'partial' in popstr.keys() :
-				pub_partial.publish(popstr["partial"])
+				pub_partial.publish(popstr["partial"].encode(encoding, errors='replace'))
 			rate.sleep()
 			if 'result' in popstr.keys() :
-				pub_speech.publish(str(popstr['text']))
-				pub_fullresults.publish(str(popstr['result']))
+				pub_speech.publish(str(popstr['text'].encode(encoding, errors='replace')))
+				pub_fullresults.publish(str(popstr['result']).encode(encoding, errors='replace'))
 			if len(response) > 10:
 				rospy.loginfo("Queue on VOSK response is getting bigger, filtering out older results")
 				response = []
