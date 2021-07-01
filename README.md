@@ -22,6 +22,13 @@ This is a first draft of the module that works as a simple topic publisher (so n
 
 If you want to contribute, feel free to do so!
 
+### UTF-8 Characters
+
+Ros1 does not support publishing non-ascii characters over topics. So if your language contains utf-8 characters, you have two options: remove them or encode them as ascii character (and decode them on reading).
+
+Both option are supported (change variable "encoding" to "ascii" to remove them, and to "utf-8" to encode them in ascii).
+[Here]( https://answers.ros.org/question/269873/how-do-i-use-unicode-strings-in-pubishsubscribe/) you can find further references.
+
 ## Usage
 
 1. Start the docker container
